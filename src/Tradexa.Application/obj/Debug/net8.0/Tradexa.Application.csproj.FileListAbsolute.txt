@@ -1,0 +1,13 @@
+D:\Projects\Tradexa\src\Tradexa.Application\bin\Debug\net8.0\Tradexa.Application.deps.json
+D:\Projects\Tradexa\src\Tradexa.Application\bin\Debug\net8.0\Tradexa.Application.dll
+D:\Projects\Tradexa\src\Tradexa.Application\bin\Debug\net8.0\Tradexa.Application.pdb
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\Tradexa.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\Tradexa.Application.AssemblyInfoInputs.cache
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\Tradexa.Application.AssemblyInfo.cs
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\Tradexa.Application.csproj.CoreCompileInputs.cache
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\Tradexa.Application.sourcelink.json
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\Tradexa.Application.dll
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\refint\Tradexa.Application.dll
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\Tradexa.Application.pdb
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\ref\Tradexa.Application.dll
+D:\Projects\Tradexa\src\Tradexa.Application\obj\Debug\net8.0\Tradexa.Application.csproj.AssemblyReference.cache

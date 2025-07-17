@@ -1,0 +1,23 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/obj
+/bin
+/Shared/SharedApiLibrary/obj
+/.vs
+/EwanOverseasFront/.angular/cache/15.2.8
+/EwanOverseasFront/node_modules
+/Shared/SharedApiLibrary/bin/Debug/net6.0
+/Shared/SharedCoreLibrary/bin
+/Shared/SharedCoreLibrary/obj
+/Shared/SharedInfraStructureLibrary/bin
+/Shared/SharedInfraStructureLibrary/obj
+/Src/Ewan.Overseas.API/bin
+/Src/Ewan.Overseas.API/obj
+/Src/Ewan.Overseas.Core/bin/Debug/net6.0
+/Src/Ewan.Overseas.Core/obj
+/Src/Ewan.Overseas.InfraStructure/bin
+/Src/Ewan.Overseas.InfraStructure/obj
+/Segments.Service/bin
+/Segments.Service/obj
