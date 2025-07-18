@@ -4,9 +4,11 @@ using Serilog;
 using Tradexa.Application.Interfaces;
 using Tradexa.Infrastructure.Persistence;
 using Tradexa.Domain.Entities;
-// using System.Globalization;                   // Uncomment if using localization
-// using Microsoft.AspNetCore.Localization;
-// using Microsoft.Extensions.Options;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
+using Tradexa.Infrastructure.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,18 +35,18 @@ builder.Services
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
 
 // Uncomment to enable localization middleware
-//builder.Services.Configure<RequestLocalizationOptions>(options =>
-//{
-//    var supportedCultures = new[]
-//    {
-//        new CultureInfo("en"),
-//        new CultureInfo("ar")
-//    };
-//
-//    options.DefaultRequestCulture = new RequestCulture("en");
-//    options.SupportedCultures = supportedCultures;
-//    options.SupportedUICultures = supportedCultures;
-//});
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    var supportedCultures = new[]
+    {
+        new CultureInfo("en"),
+        new CultureInfo("ar")
+    };
+
+    options.DefaultRequestCulture = new RequestCulture("en");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
 
 // ------------ CORS Policy ------------
 builder.Services.AddCors(options =>
@@ -67,19 +69,20 @@ builder.Services.AddControllers()
 
 // ------------ Swagger ------------
 builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen();
 
 // ------------ Authentication / Authorization ------------
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // ------------ Dependency Injection (Services) ------------
-builder.Services.AddScoped<IProductService, ProductService>();
-// builder.Services.AddScoped<ICategoryService, CategoryService>();
-// builder.Services.AddScoped<IUserService, UserService>();
-// builder.Services.AddScoped<IInvoiceService, InvoiceService>();
-// builder.Services.AddScoped<IReportService, ReportService>();
-// builder.Services.AddScoped<ILayoutPreferenceService, LayoutPreferenceService>();
+ builder.Services.AddScoped<IProductService, ProductService>();
+ builder.Services.AddScoped<ICategoryService, CategoryService>();
+ builder.Services.AddScoped<IUserService, UserService>();
+ builder.Services.AddScoped<IInvoiceService, InvoiceService>();
+ builder.Services.AddScoped<IReportService, ReportService>();
+ //builder.Services.AddScoped<ILayoutPreferenceService, LayoutPreferenceService>();
 
 // ------------ Logging + HttpContext ------------
 builder.Services.AddHttpContextAccessor();
@@ -90,8 +93,12 @@ var app = builder.Build();
 // ------------ Middleware Pipeline ------------
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tradexa API V1");
+        c.RoutePrefix = string.Empty; // This makes Swagger UI the root page
+    });
 }
 else
 {
@@ -100,7 +107,7 @@ else
 }
 
 // Uncomment if localization is enabled
-//app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+app.UseRequestLocalization(app.Services.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
 
 app.UseSerilogRequestLogging();
 app.UseCors("AllowAll");

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tradexa.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60a1e8685c79ac606eaccf071ffd83b0c5917c8c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f0ad3e829bd4db3d54fd4557e0ca6d2560fcdfd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tradexa.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tradexa.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
