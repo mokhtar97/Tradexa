@@ -1,0 +1,10 @@
+.main-container {
+  display: flex;
+  height: calc(100vh - 64px); /* assuming header is 64px */
+}
+
+.content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}

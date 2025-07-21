@@ -1,0 +1,68 @@
+{
+    "CATEGORY": {
+        "ENGLISH_NAME": "الاسم بالإنجليزية",
+        "ARABIC_NAME": "الاسم بالعربية",
+        "ACTIONS": "الإجراءات",
+        "EDIT": "تعديل",
+        "DELETE": "حذف",
+        "ADD_CATEGORY": "إضافة فئة"
+    },
+    "logout": "تسجيل الخروج",
+    "profile": "الملف الشخصي",
+    "theme": {
+        "darkMode": "الوضع الداكن"
+    },
+    "product": {
+    "title": "المنتجات",
+    "create": "إنشاء منتج",
+    "edit": "تعديل المنتج",
+    "name": "الاسم",
+    "price": "السعر",
+    "stock": "المخزون",
+    "actions": "الإجراءات"
+  },
+  "category": {
+    "title": "الفئات",
+    "createTitle": "إضافة تصنيف جديد",
+    "create": "إنشاء فئة",
+    "edit": "تعديل الفئة",
+    "englishName": "الاسم بالإنجليزية",
+    "arabicName": "الاسم بالعربية",
+    "actions": "الإجراءات",
+    "validation": {
+    "required": "هذا الحقل مطلوب"
+  }
+  },
+  "user": {
+  "title": "المستخدمون",
+  "create": "إنشاء مستخدم",
+  "edit": "تعديل المستخدم",
+  "delete": "حذف",
+  "name": "اسم المستخدم",
+  "email": "البريد الإلكتروني",
+  "role": "الدور",
+  "password": "كلمة المرور",
+  "actions": "الإجراءات"
+},
+"invoice": {
+  "title": "الفواتير",
+  "create": "فاتورة جديدة",
+  "edit": "تعديل الفاتورة",
+  "delete": "حذف",
+  "export": "تصدير PDF",
+  "number": "رقم الفاتورة",
+  "date": "التاريخ",
+  "customer": "العميل",
+  "total": "الإجمالي",
+  "actions": "الإجراءات"
+},
+  "report": {
+    "title": "لوحة التقارير",
+    "export": "تصدير التقرير",
+    "dateRange": "نطاق التاريخ"
+  },
+    "validation": {
+        "required": "هذا الحقل مطلوب.",
+        "positiveNumber": "يرجى إدخال رقم موجب."
+    }
+}

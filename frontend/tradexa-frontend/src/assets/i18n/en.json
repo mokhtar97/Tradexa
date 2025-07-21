@@ -1,0 +1,68 @@
+{
+    "CATEGORY": {
+        "ENGLISH_NAME": "English Name",
+        "ARABIC_NAME": "Arabic Name",
+        "ACTIONS": "Actions",
+        "EDIT": "Edit",
+        "DELETE": "Delete",
+        "ADD_CATEGORY": "Add Category"
+    },
+    "logout": "Logout",
+    "profile": "Profile",
+    "theme": {
+        "darkMode": "Dark Mode"
+    },
+     "product": {
+    "title": "Products",
+    "create": "Create Product",
+    "edit": "Edit Product",
+    "name": "Name",
+    "price": "Price",
+    "stock": "Stock",
+    "actions": "Actions"
+  },
+  "category": {
+    "title": "Categories",
+    "createTitle": "Add New Category",
+    "create": "Create Category",
+    "edit": "Edit Category",
+    "englishName": "English Name",
+    "arabicName": "Arabic Name",
+    "actions": "Actions",
+    "validation": {
+    "required": "This field is required"
+  }
+  },
+  "user": {
+  "title": "Users",
+  "create": "Create User",
+  "edit": "Edit User",
+  "delete": "Delete",
+  "name": "User Name",
+  "email": "Email",
+  "role": "Role",
+  "password": "Password",
+  "actions": "Actions"
+},
+"invoice": {
+  "title": "Invoices",
+  "create": "New Invoice",
+  "edit": "Edit Invoice",
+  "delete": "Delete",
+  "export": "Export PDF",
+  "number": "Invoice #",
+  "date": "Date",
+  "customer": "Customer",
+  "total": "Total",
+  "actions": "Actions"
+},
+  "report": {
+    "title": "Report Dashboard",
+    "export": "Export Report",
+    "dateRange": "Date Range"
+  },
+    "validation": {
+        "required": "This field is required.",
+        "positiveNumber": "Please enter a positive number."
+    }
+}

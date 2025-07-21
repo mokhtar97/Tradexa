@@ -1,0 +1,48 @@
+<h2>{{ 'product.edit' | translate }}</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <!-- English Name -->
+  <label>{{ 'product.englishName' | translate }}</label>
+  <input formControlName="englishName" />
+  <div class="error" *ngIf="form.get('englishName')?.invalid && form.get('englishName')?.touched">
+    {{ 'validation.required' | translate }}
+  </div>
+
+  <!-- Arabic Name -->
+  <label>{{ 'product.arabicName' | translate }}</label>
+  <input formControlName="arabicName" />
+  <div class="error" *ngIf="form.get('arabicName')?.invalid && form.get('arabicName')?.touched">
+    {{ 'validation.required' | translate }}
+  </div>
+
+  <!-- Category -->
+  <label>{{ 'product.category' | translate }}</label>
+  <select formControlName="categoryId">
+    <option value="">{{ 'product.selectCategory' | translate }}</option>
+    <!-- Dynamically populate from API if needed -->
+    <option *ngFor="let cat of categories" [value]="cat.id">
+      {{ cat.englishName }}
+    </option>
+  </select>
+  <div class="error" *ngIf="form.get('categoryId')?.invalid && form.get('categoryId')?.touched">
+    {{ 'validation.required' | translate }}
+  </div>
+
+  <!-- Price -->
+  <label>{{ 'product.price' | translate }}</label>
+  <input type="number" formControlName="price" />
+  <div class="error" *ngIf="form.get('price')?.invalid && form.get('price')?.touched">
+    {{ 'validation.positiveNumber' | translate }}
+  </div>
+
+  <!-- Stock -->
+  <label>{{ 'product.stock' | translate }}</label>
+  <input type="number" formControlName="stock" />
+  <div class="error" *ngIf="form.get('stock')?.invalid && form.get('stock')?.touched">
+    {{ 'validation.positiveNumber' | translate }}
+  </div>
+
+  <!-- Submit -->
+  <button type="submit" [disabled]="form.invalid">
+    {{ 'product.save' | translate }}
+  </button>
+</form>

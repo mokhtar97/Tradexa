@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="brand">Tradexa</span>
+  <span class="spacer"></span>
+
+  <!-- Theme Switcher -->
+  <mat-slide-toggle
+    [checked]="themeService.getTheme() === 'dark'"
+    (change)="themeService.toggleTheme()"
+    color="accent"
+  >
+    {{ 'theme.darkMode' | translate }}
+  </mat-slide-toggle>
+
+  <!-- Language Switcher -->
+  <mat-form-field appearance="outline" class="lang-switch">
+    <mat-select [value]="selectedLang" (selectionChange)="switchLang($event.value)">
+      <mat-option value="en">English</mat-option>
+      <mat-option value="ar">العربية</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- User Menu -->
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>{{ 'profile' | translate }}</button>
+    <button mat-menu-item>{{ 'logout' | translate }}</button>
+  </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,31 @@
+<div class="toolbar">
+    <button routerLink="/products/create">{{ 'addProduct' | translate }}</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>{{ 'product.englishName' | translate }}</th>
+            <th>{{ 'product.arabicName' | translate }}</th>
+            <th>{{ 'product.category' | translate }}</th>
+            <th>{{ 'product.price' | translate }}</th>
+            <th>{{ 'product.stock' | translate }}</th>
+            <th>{{ 'product.actions' | translate }}</th>
+            <button>{{ 'product.edit' | translate }}</button>
+            <button>{{ 'product.delete' | translate }}</button>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{ product.englishName }}</td>
+            <td>{{ product.arabicName }}</td>
+            <td>{{ product.categoryName }}</td>
+            <td>{{ product.price | currency }}</td>
+            <td>{{ product.stock }}</td>
+            <td>
+                <button [routerLink]="['/products/edit', product.id]">{{ 'edit' | translate }}</button>
+                <button (click)="deleteProduct(product.id)">{{ 'delete' | translate }}</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

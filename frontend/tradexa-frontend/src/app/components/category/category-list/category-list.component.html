@@ -1,0 +1,27 @@
+<div class="toolbar">
+  <button routerLink="/categories/create">{{ 'category.createTitle' | translate }}</button>
+</div>
+
+<!-- <button>{{ 'CATEGORY.ADD_CATEGORY' | translate }}</button>
+<th>{{ 'CATEGORY.ENGLISH_NAME' | translate }}</th>
+<td>{{ 'CATEGORY.ARABIC_NAME' | translate }}</td> -->
+
+<table>
+  <thead>
+    <tr>
+      <th>{{ 'category.englishName' | translate }}</th>
+      <th>{{ 'category.arabicName' | translate }}</th>
+      <th>{{ 'category.actions' | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.englishName }}</td>
+      <td>{{ category.arabicName }}</td>
+      <td>
+        <button [routerLink]="['/categories/edit', category.id]">Edit</button>
+        <button (click)="deleteCategory(category.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

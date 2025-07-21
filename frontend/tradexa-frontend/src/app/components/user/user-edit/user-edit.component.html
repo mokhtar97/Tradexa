@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="form-container">
+  <label>User Name</label>
+  <input formControlName="userName" />
+  <!-- <div *ngIf="form.controls.userName.invalid && form.controls.userName.touched">Required</div> -->
+
+  <label>Email</label>
+  <input formControlName="email" />
+  <!-- <div *ngIf="form.controls.email.invalid && form.controls.email.touched">Invalid Email</div> -->
+
+  <label>Role</label>
+  <select formControlName="role">
+    <option value="Admin">Admin</option>
+    <option value="Manager">Manager</option>
+    <option value="User">User</option>
+  </select>
+
+  <label *ngIf="form.contains('password')">Password</label>
+  <input *ngIf="form.contains('password')" formControlName="password" type="password" />
+  <!-- <div *ngIf="form.controls.password?.invalid && form.controls.password?.touched">Minimum 6 characters</div> -->
+
+  <button type="submit" [disabled]="form.invalid">Save</button>
+</form>

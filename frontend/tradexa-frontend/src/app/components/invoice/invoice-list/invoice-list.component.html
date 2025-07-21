@@ -1,0 +1,28 @@
+<div class="toolbar">
+  <button routerLink="/invoices/create">{{ 'invoice.create' | translate }}</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>{{ 'invoice.number' | translate }}</th>
+      <th>{{ 'invoice.date' | translate }}</th>
+      <th>{{ 'invoice.customer' | translate }}</th>
+      <th>{{ 'invoice.total' | translate }}</th>
+      <th>{{ 'invoice.actions' | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let invoice of invoices">
+      <td>{{ invoice.number }}</td>
+      <td>{{ invoice.date | date }}</td>
+      <td>{{ invoice.customerName }}</td>
+      <td>{{ invoice.total | currency }}</td>
+      <td>
+        <button [routerLink]="['/invoices/edit', invoice.id]">{{ 'invoice.edit' | translate }}</button>
+        <button (click)="exportPdf(invoice.id)">{{ 'invoice.export' | translate }}</button>
+        <button (click)="deleteInvoice(invoice.id)">{{ 'invoice.delete' | translate }}</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
