@@ -30,6 +30,7 @@ builder.Services
     .AddIdentity<ApplicationUser, ApplicationRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
+builder.Services.AddAutoMapper(typeof(Program));
 
 // ------------ Localization ------------
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");

@@ -10,13 +10,13 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options) { }
 
-    public DbSet<Product> Products;
-    public DbSet<Category> Categories;
-    public DbSet<Provider> Providers;
-    public DbSet<ProductProviderPrice> ProductProviderPrices;
+    public DbSet<Product> Products { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    public DbSet<Provider> Providers { get; set; }
+    public DbSet<ProductProviderPrice> ProductProviderPrices { get; set; }
 
-    public DbSet<Invoice> Invoices;
-    public DbSet<InvoiceItem> InvoiceItems;
+    public DbSet<Invoice> Invoices { get; set; }
+    public DbSet<InvoiceItem> InvoiceItems { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -35,7 +35,12 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
             .WithMany(c => c.Products)
             .HasForeignKey(p => p.CategoryId)
             .OnDelete(DeleteBehavior.Restrict);
-
+        builder.Entity<Product>().ToTable("Product");
+        builder.Entity<Category>().ToTable("Category");
+        builder.Entity<Provider>().ToTable("Provider");
+        builder.Entity<ProductProviderPrice>().ToTable("ProductProviderPrice");
+        builder.Entity<Invoice>().ToTable("Invoice");
+        builder.Entity<InvoiceItem>().ToTable("InvoiceItem");
         builder.Entity<InvoiceItem>()
             .HasOne(i => i.Invoice)
             .WithMany(i => i.Items)

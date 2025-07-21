@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tradexa.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54624727070691da78c91f3b2c7e84896116fbd2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e94361924a4ce2c285a3bc62d28bea0a598c96d8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tradexa.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tradexa.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
