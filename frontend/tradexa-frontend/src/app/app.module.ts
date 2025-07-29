@@ -36,6 +36,10 @@ import { ReportExportComponent } from './components/report/report-export/report-
 import { SharedModule } from './shared/layout/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -92,6 +96,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatSelectModule,
     MatCardModule,
     MatSnackBarModule,
+    MatPaginatorModule,
+    MatTooltipModule,
+    MatProgressSpinnerModule,
     SharedModule
   ],
   providers: [],

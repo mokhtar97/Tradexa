@@ -21,13 +21,10 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<ActionResult<PaginatedResult<ProductDto>>> Get([FromQuery] ProductQueryParameters query)
     {
-        var language = Request.Headers["Accept-Language"].ToString() ?? "en";
-        _logger.LogInformation("Fetching all products for language: {Language}", language);
-
-        var products = await _productService.GetAllAsync(language);
-        return Ok(products);
+        var result = await _productService.GetProductsAsync(query);
+        return Ok(result);
     }
 
     [HttpGet("{id}")]

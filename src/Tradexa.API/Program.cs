@@ -8,6 +8,8 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using Tradexa.Infrastructure.Services;
+using static Microsoft.IO.RecyclableMemoryStreamManager;
+using System.Text.Json;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -65,7 +67,7 @@ builder.Services.AddControllers()
     .AddDataAnnotationsLocalization()
     .AddJsonOptions(opt =>
     {
-        opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+        opt.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
     });
 
 // ------------ Swagger ------------

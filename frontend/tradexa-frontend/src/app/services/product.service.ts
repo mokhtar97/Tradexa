@@ -5,12 +5,14 @@ import { environment } from 'src/environment/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  private apiUrl = `${environment.apiUrl}/products`;
+  private apiUrl = `${environment.apiUrl}`;
 
   constructor(private http: HttpClient) {}
 
-  getAll(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getProducts(params: any): Observable<any> {
+          return this.http.get<any>(
+            `${this.apiUrl}/api/products`,{params}
+          );
   }
 
   getById(id: string): Observable<any> {

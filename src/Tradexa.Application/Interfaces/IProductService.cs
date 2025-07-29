@@ -4,7 +4,7 @@ namespace Tradexa.Application.Interfaces;
 
 public interface IProductService
 {
-    Task<IEnumerable<ProductDto>> GetAllAsync(string language);
+    Task<PaginatedResult<ProductDto>> GetProductsAsync(ProductQueryParameters query);
     Task<ProductDto?> GetByIdAsync(Guid id);
     Task<Guid> CreateAsync(ProductCreateDto dto);
     Task<bool> UpdateAsync(Guid id, ProductUpdateDto dto);

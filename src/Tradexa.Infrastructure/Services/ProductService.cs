@@ -20,28 +20,61 @@ namespace Tradexa.Infrastructure.Services
             //  _logger = logger;
         }
 
-        public async Task<IEnumerable<ProductDto>> GetAllAsync(string language)
+        public async Task<PaginatedResult<ProductDto>> GetProductsAsync(ProductQueryParameters query)
         {
-            var products = await _context.Products
+            var productsQuery = _context.Products
                 .Include(p => p.Category)
-                .Include(p => p.Providers)
+                .AsQueryable();
+
+            // Filtering
+            if (!string.IsNullOrWhiteSpace(query.Search))
+            {
+                productsQuery = productsQuery.Where(p =>
+                    p.EnglishName.Contains(query.Search) ||
+                    p.ArabicName.Contains(query.Search) ||
+                     p.Description.Contains(query.Search) ||
+                    (p.Category != null && (
+                        p.Category.EnglishName.Contains(query.Search) ||
+                        p.Category.ArabicName.Contains(query.Search))
+                    )
+                );
+            }
+
+            // Sorting
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                var isDesc = query.Descending;
+                productsQuery = query.SortBy.ToLower() switch
+                {
+                    "englishname" => isDesc ? productsQuery.OrderByDescending(p => p.EnglishName) : productsQuery.OrderBy(p => p.EnglishName),
+                    "arabicname" => isDesc ? productsQuery.OrderByDescending(p => p.ArabicName) : productsQuery.OrderBy(p => p.ArabicName),
+                    "price" => isDesc ? productsQuery.OrderByDescending(p => p.Price) : productsQuery.OrderBy(p => p.Price),
+                    "stock" => isDesc ? productsQuery.OrderByDescending(p => p.Stock) : productsQuery.OrderBy(p => p.Stock),
+                    _ => productsQuery
+                };
+            }
+
+            var totalCount = await productsQuery.CountAsync();
+
+            var items = await productsQuery
+                .Skip((query.Page - 1) * query.PageSize)
+                .Take(query.PageSize)
+                .Select(p => new ProductDto
+                {
+                    Id = p.Id,
+                    EnglishName = p.EnglishName,
+                    ArabicName = p.ArabicName,
+                    CategoryName = p.Category != null ? p.Category.EnglishName : null,
+                    Price = p.Price,
+                    Stock = p.Stock
+                })
                 .ToListAsync();
 
-            return products.Select(p => new ProductDto
-            {
-                Id = p.Id,
-                EnglishName = p.EnglishName,
-                ArabicName = p.ArabicName,
-                Description = p.Description,
-                Price = p.Price,
-                Stock = p.Stock,
-                //CategoryId = p.CategoryId,
-                //CategoryEnglishName = p.Category.EnglishName,
-                //CategoryArabicName = p.Category.ArabicName,
-                // = p.CreatedAt,
-                //UpdatedAt = p.UpdatedAt
-            });
+            return new PaginatedResult<ProductDto>(items, totalCount);
         }
+
+
+
 
         public async Task<ProductDto?> GetByIdAsync(Guid id)
         {
